@@ -20,7 +20,7 @@
 <!-- 1 · Hero -->
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-text">
       <div class="eyebrow">Exit-Readiness-Check für Inhaber ab 1 Mio. € Jahresumsatz</div>
       <h1>Wie würde ein Käufer Ihr Unternehmen <span class="gold">heute einordnen?</span></h1>
       <p class="lead">7 Fragen, rund 3 Minuten. Danach sehen Sie die zwei, drei Punkte, auf die ein Käufer bei Ihnen zuerst schauen würde, und warum. Vertraulich, ohne Unterlagen.</p>
@@ -29,21 +29,20 @@
     </div>
     <div class="hero-img">
       <img src="assets/steven-window.jpg" alt="Steven Manja, Gründer von Exit Ready" loading="eager">
-      <div class="hero-card">
-        <div class="hc-k">Die Partie Ihres Lebens.</div>
-        <div class="hc-t">Ihr Gegenüber spielt sie jede Woche.</div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- 2 · Proof -->
 <section class="proof">
-  <div class="wrap proof-row">
-    <div><b>10+ Jahre</b><span>M&amp;A und Unternehmensbewertung</span></div>
-    <div><b>100+</b><span>begleitete Transaktionen*</span></div>
-    <div><b>2 Mrd. €+</b><span>Transaktionsvolumen*</span></div>
-    <div><b>PwC · Evercore · Houlihan Lokey</b><span>berufliche Stationen von Steven Manja</span></div>
+  <div class="wrap">
+    <div class="proof-row">
+      <div><b>10+</b><span>Jahre M&amp;A und Unternehmensbewertung</span></div>
+      <div><b>100+</b><span>begleitete Transaktionen*</span></div>
+      <div><b>2 Mrd. €+</b><span>Transaktionsvolumen*</span></div>
+    </div>
+    <div class="proof-logos"><span class="pl-label">Stationen von Steven Manja</span><span>PwC</span><span>Evercore</span><span>Houlihan Lokey</span></div>
+    <div class="proof-logos press"><span class="pl-label">Bekannt aus</span><img src="assets/sueddeutsche-zeitung.svg" alt="Süddeutsche Zeitung"><img src="assets/fnp.svg" alt="Frankfurter Neue Presse"></div>
   </div>
   <p class="wrap foot-note">* Gezeigte Transaktionen &amp; Statistiken beziehen sich auch auf die Tätigkeit des Gründers bei anderen Firmen.</p>
 </section>
@@ -56,13 +55,15 @@
     <p class="lead reveal">Im Mittelstand liegt der Multiplikator typischerweise zwischen dem drei- und achtfachen Gewinn. Schieben Sie den Regler auf Ihren Gewinn und sehen Sie, wie groß die Spanne ist.</p>
     <div class="calc reveal">
       <label for="gewinn">Ihr jährlicher Gewinn: <b id="gewinnOut">500.000 €</b></label>
-      <input id="gewinn" type="range" min="200000" max="5000000" step="50000" value="500000">
-      <div class="calc-bar">
-        <div class="calc-end low"><span>3-facher Gewinn</span><b id="low">1,5 Mio. €</b></div>
-        <div class="calc-mid"><span>Unterschied</span><b id="diff">2,5 Mio. €</b></div>
-        <div class="calc-end high"><span>8-facher Gewinn</span><b id="high">4,0 Mio. €</b></div>
+      <input id="gewinn" type="range" min="200000" max="5000000" step="100000" value="500000">
+      <div class="range-head"><span>Unterschied zwischen 3× und 8×</span><b id="diff">2,5 Mio. €</b></div>
+      <div class="range-bar"><div class="rb-end"><small>3× Gewinn</small><b id="low">1,5 Mio. €</b></div><div class="rb-track"></div><div class="rb-end hi"><small>8× Gewinn</small><b id="high">4,0 Mio. €</b></div></div>
+      <div class="drivers">
+        <div class="drv down"><h4>↓ Was Sie Richtung 3× zieht</h4><ul><li>Ohne Sie läuft der Betrieb nicht</li><li>Ein Großkunde trägt einen großen Teil des Umsatzes</li><li>Zahlen nicht bereinigt oder nicht belegbar</li><li>Prozesse und Verträge nur im Kopf</li><li>Keine klare Wachstumsstory</li></ul></div>
+        <div class="drv up"><h4>↑ Was Sie Richtung 8× bringt</h4><ul><li>Der Betrieb läuft auch ohne Sie</li><li>Breite Kundenbasis ohne Klumpenrisiko</li><li>Bereinigte Zahlen mit Planung</li><li>Vollständige, prüfbare Dokumentation</li><li>Eine belegbare Wachstumsstory</li></ul></div>
       </div>
       <p class="micro">Veranschaulichung der typischen Spanne laut exitready.de, keine Bewertung Ihres Unternehmens. Ergebnisse hängen vom Unternehmen und der Marktsituation ab.</p>
+      <p class="calc-cta">Finden Sie heraus, was Sie bei sich nach unten zieht. <a href="#quiz" class="btn btn-sm">Check starten</a></p>
     </div>
     <div class="cards">
       <div class="card reveal"><div class="num">01</div><h3>Ihr größter Kunde</h3><p>„40 Prozent Ihres Umsatzes hängen an einem Kunden. Was passiert, wenn der wegbricht?“ Damit ist der Multiplikator einen Punkt tiefer.</p></div>
@@ -100,15 +101,44 @@
 
 <!-- 6 · Stimmen -->
 <section class="section">
-  <div class="wrap quotes">
-    <figure class="quote reveal">
-      <blockquote>„In dem Augenblick, in dem wir zu Exit Ready® gegangen sind, standen unsere Interessen im Vordergrund. Ich würde das auf jeden Fall allen Leuten empfehlen, die langfristig auf einen Verkauf hinarbeiten.“</blockquote>
-      <figcaption><img src="assets/sagtis.png" alt="SAGTIS GmbH"><span>Gary Hagen<br><small>Ehemaliger Eigentümer, SAGTIS GmbH</small></span></figcaption>
-    </figure>
-    <figure class="quote reveal">
-      <blockquote>„Schon im ersten Gespräch überzeugten uns der wertvolle Input und der pragmatische, lösungsorientierte Ansatz.“</blockquote>
-      <figcaption><span>Michael S.<br><small>Verifizierte Mandantenbewertung</small></span></figcaption>
-    </figure>
+  <div class="wrap">
+    <p class="eyebrow">Ergebnisse und Stimmen</p>
+    <h2>Was Vorbereitung im Preis ausmacht.</h2>
+    <div class="case reveal">
+      <div class="case-text">
+        <span class="case-tag">Fallbeispiel · Flachdach-Handwerker</span>
+        <h3>Gleicher Gewinn. Fast doppelter Preis.</h3>
+        <p>Das beste Angebot lag bei 4× EBITDA, branchenüblich. Exit Ready ließ das Team für Photovoltaik auf Flachdächern zertifizieren und machte daraus eine belegbare Wachstumsstory. Kein Euro mehr Gewinn.</p>
+      </div>
+      <div class="case-nums">
+        <div><small>Bestes Angebot vorher</small><b class="muted">4×</b><small>EBITDA</small></div>
+        <div class="arrow">→</div>
+        <div><small>Verkauft für</small><b>7,5×</b><small>EBITDA</small></div>
+        <div class="case-plus">+87,5 % Verkaufspreis</div>
+      </div>
+    </div>
+    <div class="quotes">
+      <figure class="quote quote-lg reveal">
+        <span class="q-result">20–30 % mehr Erlös erwartet gegenüber eigener Einschätzung</span>
+        <blockquote>„Exit Ready® hat die vorher verstreuten Zahlen zu einem klaren Gesamtbild zusammengeführt. Gleichzeitig blieben mehrere Optionen bewusst offen, statt den Prozess auf einen einzigen Weg festzulegen.“</blockquote>
+        <figcaption><img src="assets/sagtis.png" alt="SAGTIS GmbH"><span>Gary Hagen<br><small>Ehemaliger Eigentümer, SAGTIS GmbH</small></span></figcaption>
+      </figure>
+      <figure class="quote quote-lg reveal">
+        <span class="q-result">Über Steven Manja</span>
+        <blockquote>„Ich würde ihm die PIN meiner EC-Karte anvertrauen!“</blockquote>
+        <figcaption><img src="assets/stoermer-logo.png" alt="Dr. Michael Stoermer Logo"><span>Dr. Michael Stoermer<br><small>Ex-CEO</small></span></figcaption>
+      </figure>
+    </div>
+    <div class="reviews">
+      <figure class="review reveal"><div class="stars">★★★★★</div><h4>Erwartungen deutlich übertroffen</h4><blockquote>„Die strukturierte Vorbereitung und die persönliche Unterstützung auch durch Herrn Manja haben uns im gesamten Verkaufsprozess Sicherheit gegeben.“</blockquote><figcaption><span class="ini">CK</span><span>Christian K.<br><small>✓ Verifizierte Mandantenbewertung</small></span></figcaption></figure>
+      <figure class="review reveal"><div class="stars">★★★★★</div><h4>Pragmatisch und lösungsorientiert</h4><blockquote>„Schon im ersten Gespräch überzeugten uns der wertvolle Input und der pragmatische, lösungsorientierte Ansatz.“</blockquote><figcaption><span class="ini">MS</span><span>Michael S.<br><small>✓ Verifizierte Mandantenbewertung</small></span></figcaption></figure>
+      <figure class="review reveal"><div class="stars">★★★★★</div><h4>Schnell zu Ergebnissen</h4><blockquote>„Er war stets ansprechbar und wir konnten durch seine qualifizierte Unterstützung schnell Ergebnisse erzielen.“</blockquote><figcaption><span class="ini">DH</span><span>Denis H.<br><small>✓ Verifizierte Mandantenbewertung</small></span></figcaption></figure>
+    </div>
+    <div class="deals">
+      <span class="pl-label">Unternehmen, die Steven Manja auf ihrem Weg zum Verkauf begleitet hat</span>
+      <div class="logo-wall"><img src="assets/medifox-dan.jpg" alt="MEDIFOX DAN" loading="lazy"><img src="assets/sema-software.jpg" alt="SEMA Software" loading="lazy"><img src="assets/actineo.jpg" alt="Actineo" loading="lazy"><img src="assets/scandio.jpg" alt="Scandio" loading="lazy"><img src="assets/myneva.jpg" alt="myneva" loading="lazy"><img src="assets/profile.jpg" alt="PRO.FILE" loading="lazy"><img src="assets/optivu.jpg" alt="optiVU" loading="lazy"><img src="assets/envisics.jpg" alt="ENVISICS" loading="lazy"><img src="assets/moneypenny.jpg" alt="Moneypenny" loading="lazy"></div>
+    </div>
+    <p class="micro">Quelle aller Stimmen und Zahlen: exitready.de. Ergebnisse einzelner Mandanten sind nicht auf jedes Unternehmen übertragbar.</p>
   </div>
 </section>
 
@@ -134,7 +164,7 @@
 
 <footer class="wrap footer">
   <p>Exit Ready® ist ein Produkt der Manja Partners AG. Testprojekt / Konzeptseite, kein offizieller Auftritt.</p>
-  <p>* Gezeigte Transaktionen &amp; Statistiken beziehen sich auch auf die Tätigkeit des Gründers bei anderen Firmen.</p>
+  <p><a href="#">Impressum</a> · <a href="#">Datenschutz</a> · Ihre Angaben werden vertraulich behandelt und nur für die Auswertung und das Erstgespräch genutzt.</p>
 </footer>
 
 <script src="config.js"></script>
