@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exit-Readiness-Check · Wie würde ein Käufer Ihr Unternehmen einordnen?</title>
+<meta name="description" content="7 Fragen, rund 3 Minuten. Sehen Sie die zwei, drei Punkte, auf die ein Käufer bei Ihnen zuerst schauen würde – vertraulich, ohne Unterlagen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="topbar">Vertraulich · Für Inhaber ab 1 Mio. € Jahresumsatz</div>
+<header class="nav wrap">
+  <img src="assets/logo.svg" alt="Exit Ready" class="logo">
+  <a href="#quiz" class="btn btn-sm">Check starten</a>
+</header>
+
+<!-- 1 · Hero -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Exit-Readiness-Check für Inhaber ab 1 Mio. € Jahresumsatz</div>
+      <h1>Wie würde ein Käufer Ihr Unternehmen <span class="gold">heute einordnen?</span></h1>
+      <p class="lead">7 Fragen, rund 3 Minuten. Danach sehen Sie die zwei, drei Punkte, auf die ein Käufer bei Ihnen zuerst schauen würde, und warum. Vertraulich, ohne Unterlagen.</p>
+      <a href="#quiz" class="btn">Check starten</a>
+      <p class="micro">Ihre Kontaktdaten fragen wir erst am Ende ab. · Entwickelt von Steven Manja, über 10 Jahre M&amp;A und Unternehmensbewertung.</p>
+    </div>
+    <div class="hero-img">
+      <img src="assets/steven-window.jpg" alt="Steven Manja, Gründer von Exit Ready" loading="eager">
+      <div class="hero-card">
+        <div class="hc-k">Die Partie Ihres Lebens.</div>
+        <div class="hc-t">Ihr Gegenüber spielt sie jede Woche.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Proof -->
+<section class="proof">
+  <div class="wrap proof-row">
+    <div><b>10+ Jahre</b><span>M&amp;A und Unternehmensbewertung</span></div>
+    <div><b>100+</b><span>begleitete Transaktionen*</span></div>
+    <div><b>2 Mrd. €+</b><span>Transaktionsvolumen*</span></div>
+    <div><b>PwC · Evercore · Houlihan Lokey</b><span>berufliche Stationen von Steven Manja</span></div>
+  </div>
+  <p class="wrap foot-note">* Gezeigte Transaktionen &amp; Statistiken beziehen sich auch auf die Tätigkeit des Gründers bei anderen Firmen.</p>
+</section>
+
+<!-- 3 · Worauf Käufer schauen + Rechner -->
+<section class="section">
+  <div class="wrap">
+    <div class="eyebrow reveal">Die Käuferbrille</div>
+    <h2 class="reveal">Für Ihr Unternehmen gibt es eine Preisspanne.<br><span class="gold">Wo Sie landen, entscheidet der Käufer.</span></h2>
+    <p class="lead reveal">Im Mittelstand liegt der Multiplikator typischerweise zwischen dem drei- und achtfachen Gewinn. Schieben Sie den Regler auf Ihren Gewinn und sehen Sie, wie groß die Spanne ist.</p>
+    <div class="calc reveal">
+      <label for="gewinn">Ihr jährlicher Gewinn: <b id="gewinnOut">500.000 €</b></label>
+      <input id="gewinn" type="range" min="200000" max="5000000" step="50000" value="500000">
+      <div class="calc-bar">
+        <div class="calc-end low"><span>3-facher Gewinn</span><b id="low">1,5 Mio. €</b></div>
+        <div class="calc-mid"><span>Unterschied</span><b id="diff">2,5 Mio. €</b></div>
+        <div class="calc-end high"><span>8-facher Gewinn</span><b id="high">4,0 Mio. €</b></div>
+      </div>
+      <p class="micro">Veranschaulichung der typischen Spanne laut exitready.de, keine Bewertung Ihres Unternehmens. Ergebnisse hängen vom Unternehmen und der Marktsituation ab.</p>
+    </div>
+    <div class="cards">
+      <div class="card reveal"><div class="num">01</div><h3>Ihr größter Kunde</h3><p>„40 Prozent Ihres Umsatzes hängen an einem Kunden. Was passiert, wenn der wegbricht?“ Damit ist der Multiplikator einen Punkt tiefer.</p></div>
+      <div class="card reveal"><div class="num">02</div><h3>Ihre Rolle</h3><p>„Ohne Sie läuft hier nichts. Sie bleiben noch zwei Jahre an Bord.“ Verkauft, aber nicht frei.</p></div>
+      <div class="card reveal"><div class="num">03</div><h3>Ihre Belege</h3><p>Was Sie nicht belegen können, kann ein Käufer nicht prüfen. Und was er nicht prüfen kann, zieht er vom Preis ab.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Quiz -->
+<section class="section quiz-sec" id="quiz">
+  <div class="wrap narrow">
+    <div class="eyebrow">Exit-Readiness-Check</div>
+    <h2>Ihre Stellung, <span class="gold">bevor der Käufer zieht.</span></h2>
+    <div class="quiz" id="quizBox" aria-live="polite">
+      <div class="progress"><div class="progress-bar" id="bar"></div></div>
+      <div class="step-label" id="stepLabel">Frage 1 von 7</div>
+      <div id="stage"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Ablauf -->
+<section class="section soft">
+  <div class="wrap">
+    <div class="eyebrow reveal">Was nach dem Check passiert</div>
+    <h2 class="reveal">Kein Pitch. Keine Unterlagen. <span class="gold">Niemand erfährt davon.</span></h2>
+    <div class="steps">
+      <div class="step reveal"><b>1</b><h3>7 Fragen</h3><p>Rund 3 Minuten. Zu jeder Frage erfahren Sie, warum sie für den Preis zählt.</p></div>
+      <div class="step reveal"><b>2</b><h3>Ihre Auswertung</h3><p>Sie sehen sofort die 2–3 Punkte, auf die ein Käufer bei Ihnen zuerst schauen würde.</p></div>
+      <div class="step reveal"><b>3</b><h3>Vertrauliches Erstgespräch</h3><p>Wenn Sie möchten, geht Steven Manja Ihre Punkte mit Ihnen durch. Kostenfrei und unverbindlich.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Stimmen -->
+<section class="section">
+  <div class="wrap quotes">
+    <figure class="quote reveal">
+      <blockquote>„In dem Augenblick, in dem wir zu Exit Ready® gegangen sind, standen unsere Interessen im Vordergrund. Ich würde das auf jeden Fall allen Leuten empfehlen, die langfristig auf einen Verkauf hinarbeiten.“</blockquote>
+      <figcaption><img src="assets/sagtis.png" alt="SAGTIS GmbH"><span>Gary Hagen<br><small>Ehemaliger Eigentümer, SAGTIS GmbH</small></span></figcaption>
+    </figure>
+    <figure class="quote reveal">
+      <blockquote>„Schon im ersten Gespräch überzeugten uns der wertvolle Input und der pragmatische, lösungsorientierte Ansatz.“</blockquote>
+      <figcaption><span>Michael S.<br><small>Verifizierte Mandantenbewertung</small></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 7 · FAQ -->
+<section class="section soft">
+  <div class="wrap narrow">
+    <div class="eyebrow">Häufige Fragen</div>
+    <h2>Bevor Sie starten</h2>
+    <details><summary>Erfährt jemand in meinem Unternehmen davon?</summary><p>Nein. Ihre Angaben werden vertraulich behandelt und nicht weitergegeben. Für den Check und das Erstgespräch brauchen Sie keine Unterlagen.</p></details>
+    <details><summary>Muss ich verkaufen wollen?</summary><p>Nein. Sie müssen heute nicht verkaufen wollen. Je früher Sie wissen, wo Sie stehen, desto freier bestimmen Sie später, wann, an wen und zu welchem Preis.</p></details>
+    <details><summary>Was kostet der Check?</summary><p>Nichts. Der Check und das Erstgespräch sind kostenfrei und unverbindlich.</p></details>
+    <details><summary>Für wen ist der Check gedacht?</summary><p>Für Inhaber und Mehrheitsgesellschafter mit mindestens 1 Mio. € Jahresumsatz. Wer darunter liegt, erhält eine passende Ressource statt eines Termins.</p></details>
+  </div>
+</section>
+
+<!-- 8 · Final -->
+<section class="final">
+  <div class="wrap">
+    <h2>Kennen Sie Ihre Zahl,<br><span class="gold">bevor ein Käufer anruft.</span></h2>
+    <a href="#quiz" class="btn">Check starten</a>
+  </div>
+</section>
+
+<footer class="wrap footer">
+  <p>Exit Ready® ist ein Produkt der Manja Partners AG. Testprojekt / Konzeptseite, kein offizieller Auftritt.</p>
+  <p>* Gezeigte Transaktionen &amp; Statistiken beziehen sich auch auf die Tätigkeit des Gründers bei anderen Firmen.</p>
+</footer>
+
+<script src="config.js"></script>
+<script src="quiz-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

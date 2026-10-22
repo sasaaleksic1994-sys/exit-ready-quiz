@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ihre Auswertung · Exit-Readiness-Check</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .res { background: radial-gradient(ellipse at 30% 0%, var(--navy-2), var(--navy) 60%, #0A1424); color: #fff; padding: 120px 0 70px; min-height: 100vh; }
+  .res h1 { font-size: clamp(36px, 5vw, 60px); }
+  .res .lead { color: #C9CFDA; max-width: 680px; }
+  .badge { display: inline-block; background: rgba(232,197,71,.15); color: var(--gold); border: 1px solid rgba(232,197,71,.5); border-radius: 30px; padding: 6px 14px; font-size: 13px; font-weight: 700; letter-spacing: .08em; margin-bottom: 18px; }
+  .weak { display: grid; gap: 14px; margin: 30px 0; }
+  .weak-item { background: #fff; color: var(--ink); border-radius: 16px; padding: 20px 22px; border-left: 5px solid var(--gold); animation: fadeUp .6s var(--ease) both; }
+  .weak-item:nth-child(2) { animation-delay: .15s } .weak-item:nth-child(3) { animation-delay: .3s }
+  .weak-item h3 { margin: 0 0 6px; font-size: 19px; }
+  .weak-item p { margin: 0; color: var(--grey); }
+  .ok { background: rgba(255,255,255,.07); border-radius: 16px; padding: 20px 22px; color: #C9CFDA; }
+  .cta-box { margin-top: 10px; }
+  .cta-box .micro { color: #9AA3B2; }
+  .second { display: inline-block; margin-left: 18px; color: #C9CFDA; }
+  .score { font-size: 13px; color: #7E8696; margin-top: 30px; }
+</style>
+</head>
+<body>
+<div class="topbar">Vertraulich · Ihre persönliche Auswertung</div>
+<header class="nav wrap"><a href="index.html"><img src="assets/logo.svg" alt="Exit Ready" class="logo"></a></header>
+
+<section class="res">
+  <div class="wrap narrow" id="out"></div>
+</section>
+
+<footer class="wrap footer">
+  <p>Exit Ready® ist ein Produkt der Manja Partners AG. Testprojekt / Konzeptseite, kein offizieller Auftritt. Die Auswertung ist eine erste Einordnung, keine Unternehmensbewertung.</p>
+</footer>
+
+<script src="config.js"></script>
+<script>
+(function () {
+  const cfg = window.FUNNEL_CONFIG || {};
+  let r = null;
+  try { r = JSON.parse(sessionStorage.getItem('er_result') || 'null'); } catch (e) {}
+  const demo = new URLSearchParams(location.search).get('typ');
+  if (!r) r = { vorname: 'Max', typ: demo || 'A', score: 0, weak: [] };
+  const name = r.vorname || '';
+  const TYP = {
+    A: {
+      badge: 'Ergebnis-Typ A · Jetzt ist der richtige Zeitpunkt',
+      h: 'Ihr Zeitfenster ist offen. <span class="gold">Jetzt entscheidet die Reihenfolge.</span>',
+      intro: `${name}, Ihr Unternehmen hat eine gute Ausgangslage. Weil Ihr Verkauf in absehbarer Zeit ansteht, zählt jetzt, welche Punkte Sie zuerst angehen. Ein Käufer würde bei Ihnen vor allem hier nachhaken:`,
+      after: 'Im kostenlosen Erstgespräch geht Steven Manja diese Punkte mit Ihnen durch und zeigt Ihnen, womit Sie anfangen sollten. Vertraulich, ohne Unterlagen, ohne Verpflichtung.',
+      cta: `<a class="btn" href="${cfg.bookingUrl}">Erstgespräch mit Steven Manja wählen</a><p class="micro">Freie Termine in den nächsten 7 Tagen · Sie erhalten die Auswertung zusätzlich per E-Mail</p>`,
+    },
+    B: {
+      badge: 'Ergebnis-Typ B · Gute Basis, mit klaren Lücken',
+      h: 'Gute Basis. <span class="gold">Und genug Zeit, um die Lücken zu schließen.</span>',
+      intro: `${name}, Sie sind früh dran, und das ist ein Vorteil: Die meisten Werthebel brauchen zwei bis fünf Jahre Vorlauf. Diese Punkte würde ein Käufer heute bei Ihnen zuerst ansprechen:`,
+      after: 'Im Erstgespräch erfahren Sie, welcher dieser Punkte bei Ihnen am meisten Zeit braucht, damit Sie in Ruhe planen können.',
+      cta: `<a class="btn" href="${cfg.bookingUrl}">Erstgespräch wählen</a><a class="second" href="${cfg.reportUrl}">Lieber erst lesen? Zum kostenlosen Experten-Report (32 Seiten)</a>`,
+    },
+    C: {
+      badge: 'Ergebnis-Typ C · Früh dran: jetzt Wert aufbauen',
+      h: 'Sie haben Zeit. <span class="gold">Nutzen Sie sie, um Wert aufzubauen.</span>',
+      intro: `${name}, ein Verkaufsprozess ist für Sie heute noch nicht das Thema. Die Grundlagen, auf die Käufer später schauen, legen Sie aber genau jetzt. Ihre Auswertung zeigt, wo Sie anfangen können:`,
+      after: 'Im kostenlosen Videokurs zeigt Steven Manja, wie Käufer bewerten und welche Hebel Sie heute schon selbst ziehen können.',
+      cta: `<a class="btn" href="${cfg.videokursUrl}">Videokurs kostenlos starten</a>`,
+    },
+  };
+  const t = TYP[r.typ] || TYP.A;
+  const weak = (r.weak && r.weak.length)
+    ? `<div class="weak">${r.weak.map((w) => `<div class="weak-item"><h3>${w.title}</h3><p>${w.text}</p></div>`).join('')}</div>`
+    : `<div class="weak"><div class="ok">Bei den Punkten Inhaberabhängigkeit, Kundenstruktur, Zahlen und Dokumentation sind Sie gut aufgestellt. Ein Käufer würde vor allem auf Details schauen, die wir im Gespräch klären können.</div></div>`;
+  document.getElementById('out').innerHTML = `
+    <div class="badge">${t.badge}</div>
+    <h1>${t.h}</h1>
+    <p class="lead">${t.intro}</p>
+    ${weak}
+    <p class="lead">${t.after}</p>
+    <div class="cta-box">${t.cta}</div>`;
+})();
+</script>
+</body>
+</html>
